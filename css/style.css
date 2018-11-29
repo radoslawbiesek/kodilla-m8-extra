@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ddd;
+}
+
+.wrapper {
+  padding: 1em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  font-family: sans-serif;
+}
+
+.wrapper section {
+  -ms-flex: 1;
+      flex: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  color: #fff;
+}
+
+.wrapper section + section {
+  margin-left: 1em;
+}
+
+.controls {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  background: #999;
+}
+
+.controls button {
+  margin: .5rem;
+  font-size: 1.5em;
+}
+
+.elements {
+  background: #693;
+}
+
+.elements .element {
+  background: #4d7326;
+  padding: .25em;
+  margin-bottom: .25rem;
+  text-align: center;
+}
+
+.output {
+  background: #369;
+}
+
+.output > div {
+  padding: .25em;
+}
+
+.output .error {
+  background: #933;
+  font-weight: bold;
+  margin-bottom: .25rem;
+}
+
+.output .info {
+  background: #204060;
+  margin-bottom: .25rem;
+}
+/*# sourceMappingURL=style.css.map */

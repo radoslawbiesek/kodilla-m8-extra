@@ -27,28 +27,33 @@
  */
 
 var count = 0;
-var deleted = 0;
 
 var addButton = document.querySelector(".add");
 var removeButton = document.querySelector(".remove");
 var elementsDiv = document.querySelector(".elements");
 var outputDiv = document.querySelector(".output");
 
-var addElement = function() {
-  elementsDiv.innerHTML += '<div class="element"></div>';
-  elementsDiv.childNodes[elementsDiv.childNodes.length - 1].innerHTML = count;
+function addElement() {
+  displayOutput(count, elementsDiv, 'element');
+  displayOutput('Add element number ' + count + '.', outputDiv, 'info');
   count++;
-  outputDiv.insertAdjacentHTML('beforeend', '<div class="info">Add element number ' + count + '.</div>');
 };
 
-var removeElement = function() {
-    if (elementsDiv.querySelector('.element') == null) {
-        outputDiv.insertAdjacentHTML('beforeend', '<div class="error">There is nothing to remove!</div>');
+function removeElement() {
+    var element = elementsDiv.querySelector('.element');
+    if (!element) {
+        displayOutput('There is nothing to remove!', outputDiv, 'error');
     } else {
-        elementsDiv.querySelector('.element').remove();
-        outputDiv.insertAdjacentHTML('beforeend', '<div class="info">Remove element number ' + deleted + '.</div>');
-        deleted++;
+        displayOutput('Remove element number ' + element.innerText + '.', outputDiv, 'info');
+        element.remove(); 
     }
+}
+
+function displayOutput(text, place, divClass) {
+    var newDiv = document.createElement('div');
+    place.appendChild(newDiv);
+    newDiv.innerText = text;
+    newDiv.classList.add(divClass);
 }
 
 addButton.addEventListener('click', addElement);
